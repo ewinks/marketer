@@ -1,0 +1,11 @@
+campaigns:
+  test_1:
+    campaign_name: "Test 1"
+    subject: "This is a test subject"
+    body: "This is a test body"
+    from: "Josh Lewis <josh@joshmlewis.com>"
+  test_2:
+    campaign_name: "Test 2"
+    subject: "This is a fucking test subject"
+    body: "This is a fucking test body"
+    from: "Josh Fucking Lewis <josh@fuckingjoshmlewis.com>"
