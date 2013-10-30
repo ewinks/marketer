@@ -19,7 +19,7 @@ module Marketer
       configuration['api_key']
     end
 
-    def self.comain
+    def self.domain
       configuration['domain']
     end
 
