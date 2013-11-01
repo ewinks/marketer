@@ -1,11 +1,38 @@
 campaigns:
-  test_1:
-    campaign_name: "Test 1"
-    subject: "This is a test subject"
-    body: "This is a test body"
-    from: "Josh Lewis <josh@joshmlewis.com>"
-  test_2:
-    campaign_name: "Test 2"
-    subject: "This is a fucking test subject"
-    body: "This is a fucking test body"
-    from: "Josh Fucking Lewis <josh@fuckingjoshmlewis.com>"
+  one:
+    campaign_id: "dj_5_7"
+    subject: "Finally, an affordable heavy equipment price research tool"
+    text: |
+        Researching the prices of heavy machinery is expensive. Most dealers and buyers spend hundreds of dollars and countless hours to keep a pulse on the market.
+
+        We've solved this problem by building a powerful and affordable research tool that arms you with knowledge about sales prices, global market data, and powerful metrics.
+
+        Say yes to buying power and sign up for a free trial today.
+
+        http://dirtjockey.com/
+
+        Josh Lewis and the DirtJockey Team
+        josh@dirtjockey.com
+
+        Unsubscribe: %unsubscribe_url%
+    html: |
+        <!DOCTYPE html>
+        <html>
+            <body>
+                Researching the prices of heavy machinery is expensive. Most dealers and buyers  spend hundreds of dollars and countless hours to keep a pulse on the market.
+                <br /><br />
+                We've solved this problem by building a powerful and affordable research tool that arms you with knowledge about sales prices, global market data, and powerful metrics.
+                <br /><br />
+                Say yes to buying power and sign up for a free trial today.
+                <br /><br />
+                <a href="http://dirtjockey.com/">http://dirtjockey.com</a>
+                <br /><br />
+                Josh Lewis and the DirtJockey Team
+                josh@dirtjockey.com
+                <br /><br />
+                <a href="%unsubscribe_url%">Click Here To Unsubscribe</a>
+            </body>
+        </html>
+    from: "Josh Lewis <josh@dirtjockey.com>"
+
+

@@ -33,7 +33,7 @@ module Marketer
 
     def send_to!(email_list)
       email_list.each do |email_address|
-        Marketer::ResqueManager.enqueue(Marketer::SendCampaignJob, email_address, subject, body, from, mailgun_id)
+        Marketer::ResqueManager.enqueue(Marketer::SendCampaignJob, email_address, subject, text, html, from, campaign_id)
       end
     end
 
@@ -43,16 +43,20 @@ module Marketer
       @details
     end
 
-    def name
-      details["campaign_name"]
+    def campaign_id
+      details["campaign_id"]
     end
 
     def subject
       details["subject"]
     end
 
-    def body
-      details["body"]
+    def text
+      details["text"]
+    end
+
+    def html
+      details["html"]
     end
 
     def from

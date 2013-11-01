@@ -2,6 +2,7 @@ module Marketer
   class Sender
     def self.send_to!(email_list)
       email_list = Marketer::ListCleaner.clean_list(email_list.to_a)
+
       chunked_campaign_distribution(email_list).each do |campaign_mailgun_id, emails|
         Marketer::Campaign.new(campaign_mailgun_id).send_to!(emails)
       end
