@@ -18,7 +18,6 @@ describe Marketer::Campaign do
   end
 
   describe "#create_campaign_id_in_mailgun!" do
-
     subject { Marketer::Campaign.new(campaign_id).create_campaign_id_in_mailgun! }
 
     context "when either the campaign name or ID are too long" do
@@ -33,18 +32,32 @@ describe Marketer::Campaign do
   end
 
   describe "#send_to!" do
-    subject { Marketer::Campaign.new(campaign_id).send_to!(emails) }
+    before do
+      ResqueSpec.reset!
+      Marketer::Campaign.stub(:configuration_manifest) do
+        {
+            "campaign_1" => {
+                "campaign_name" => "Test Campaign Name"
+            }
+        }
+      end
+    end
+    subject { Marketer::Campaign.new("campaign_1").send_to!(emails) }
 
     context "when emails are provided" do
       let(:emails) { ['a', 'b', 'c'] }
 
-      pending 'resque-rspec'
+      it 'should enqueue 3 e-mails' do
+        subject
+        Marketer::SendCampaignJob.should have_queue_size_of(3)
+      end
     end
 
     context 'when no emails are provided' do
       let(:emails) { [] }
-
-      pending 'resque-rspec'
+      it 'should not enqueue any e-mails' do
+        Marketer::SendCampaignJob.should have_queue_size_of(0)
+      end
     end
 
   end
